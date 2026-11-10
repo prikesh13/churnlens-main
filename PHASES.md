@@ -21,10 +21,10 @@ This repository is built and released in **three progressive phases**, each repr
 
 ---
 
-## 🔜 Phase 2 — ML Models (Churn + CLV + Explainability)
-> **Planned**
+## ✅ Phase 2 — ML Models (Churn + CLV + Explainability)
+> **Branch / Tag:** `phase-2`
 
-**What will be added:**
+**What's included:**
 - Calibrated XGBoost churn classifier with SMOTE + Optuna HPO (`src/models/churn_model.py`)
 - Discounted Cash Flow + BG/NBD CLV engine + retention priority matrix (`src/models/clv.py`)
 - SHAP TreeExplainer for per-customer feature attribution (`src/models/shap_explainer.py`)
@@ -46,7 +46,7 @@ This repository is built and released in **three progressive phases**, each repr
 
 ---
 
-## Running Phase 1
+## Running Phase 1 & Phase 2
 
 ```bash
 # 1. Clone
@@ -63,6 +63,10 @@ pip install -r requirements.txt
 # 4. Download raw data
 python scripts/download_data.py
 
-# 5. Run Phase 1 tests
+# 5. Run tests
 pytest tests/test_loader.py tests/test_preprocessor.py tests/test_segmentation.py -v
+pytest tests/test_churn_model.py tests/test_clv.py tests/test_shap_explainer.py -v
+
+# 6. Evaluate a customer
+python evaluate_customer.py
 ```
