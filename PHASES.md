@@ -35,10 +35,10 @@ This repository is built and released in **three progressive phases**, each repr
 
 ---
 
-## 🔜 Phase 3 — Streamlit Dashboard & Full Integration
-> **Planned**
+## ✅ Phase 3 — Streamlit Dashboard & Full Integration
+> **Branch / Tag:** `phase-3`
 
-**What will be added:**
+**What's included:**
 - 6-tab Streamlit dashboard (`dashboard/app.py`)
 - Plotly chart library: gauge, waterfall, heatmap, radar (`dashboard/charts.py`)
 - Cached artifact loader (`dashboard/loader.py`)
@@ -46,7 +46,7 @@ This repository is built and released in **three progressive phases**, each repr
 
 ---
 
-## Running Phase 1 & Phase 2
+## Running the Complete Project (All Phases)
 
 ```bash
 # 1. Clone
@@ -60,13 +60,15 @@ source venv/bin/activate   # Windows: venv\Scripts\activate
 # 3. Install dependencies
 pip install -r requirements.txt
 
-# 4. Download raw data
+# 4. Download raw data (optional if pre-computed artifacts are present)
 python scripts/download_data.py
 
 # 5. Run tests
-pytest tests/test_loader.py tests/test_preprocessor.py tests/test_segmentation.py -v
-pytest tests/test_churn_model.py tests/test_clv.py tests/test_shap_explainer.py -v
+pytest tests/ -v
 
 # 6. Evaluate a customer
 python evaluate_customer.py
+
+# 7. Launch interactive dashboard
+streamlit run dashboard/app.py
 ```
